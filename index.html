@@ -290,12 +290,20 @@
     .reveal{opacity:1;transform:none;transition:none;}
   }
 
-  /* ---------- print ---------- */
+  /* ---------- print: clean black &amp; white ---------- */
   @media print{
     @page{size:A4;margin:12mm;}
-    *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    :root{
+      --ink:#000;--paper:#fff;--surface:#fff;--warm:#fff;
+      --border:#999;--muted:#444;
+      --orange:#000;--green:#000;--green-deep:#000;--wall:#000;--olive:#000;
+    }
+    .stage,.bankcard,.seg{--tone:#000 !important;}
     .reveal{opacity:1 !important;transform:none !important;transition:none !important;}
     .wrap{font-size:13px;padding:0 12px 40px;}
+    .thesis,.gist,.q,.cue p,.take p,.seg .sq,.bankcard li,.who span{color:#000;}
+    .cue{border:1.5px solid #000;}
+    .q{border-left-width:3px;}
     .hero{padding:24px 0 28px;}
     .hero h1{font-size:34px;}
     .thesis{font-size:16px;}
