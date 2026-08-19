@@ -289,6 +289,28 @@
   @media (prefers-reduced-motion:reduce){
     .reveal{opacity:1;transform:none;transition:none;}
   }
+
+  /* ---------- print ---------- */
+  @media print{
+    @page{size:A4;margin:12mm;}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .reveal{opacity:1 !important;transform:none !important;transition:none !important;}
+    .wrap{font-size:13px;padding:0 12px 40px;}
+    .hero{padding:24px 0 28px;}
+    .hero h1{font-size:34px;}
+    .thesis{font-size:16px;}
+    .arc{padding-top:32px;}
+    .stage{padding:24px 0 24px 30px;}
+    .stage::before{top:30px;}
+    .stage h3{font-size:19px;}
+    .block{padding:28px 0 8px;}
+    .block h2{font-size:24px;}
+    .q,.cue,.bankcard,.seg,.take{break-inside:avoid;}
+    .pull{font-size:18px;}
+    .quotes{gap:8px;}
+    .q{padding:10px 14px;font-size:13px;}
+    footer{margin-top:30px;}
+  }
 </style>
 </head>
 <body>
