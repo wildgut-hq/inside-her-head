@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>WildGut — Inside Her Head</title>
+<style>
+  :root{
+    --ink:#2a1f1a;
+    --paper:#faf7f3;
+    --surface:#ffffff;
+    --warm:#fff5ee;
+    --border:#e5ddd6;
+    --muted:#9b8a7e;
+    --orange:#d15838;
+    --green:#4caf50;
+    --green-deep:#3d8b41;
+    --wall:#6b5d53;
+    --olive:#8aa35a;
+
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    --mono:"SF Mono",ui-monospace,Menlo,"Cascadia Mono",monospace;
+
+    --maxw:920px;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+
+  .wrap{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    font-size:17px;
+    padding:0 20px 100px;
+  }
+
+  .col{max-width:var(--maxw);margin:0 auto;}
+
+  /* ---------- eyebrow / labels ---------- */
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:0;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:88px 0 56px;
+    border-bottom:1px solid var(--border);
+  }
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:clamp(38px,7vw,66px);
+    line-height:1.02;
+    letter-spacing:-0.02em;
+    margin:20px 0 0;
+    text-wrap:balance;
+  }
+  .hero h1 em{color:var(--orange);font-style:italic;}
+  .thesis{
+    font-family:var(--serif);
+    font-size:clamp(19px,2.6vw,24px);
+    line-height:1.45;
+    font-style:italic;
+    color:#4a3a30;
+    max-width:33ch;
+    margin:28px 0 0;
+    text-wrap:pretty;
+  }
+  .who{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:36px;
+  }
+  .who span{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.04em;
+    background:var(--warm);
+    border:1px solid var(--border);
+    color:#5a4a3e;
+    padding:7px 13px;
+    border-radius:999px;
+  }
+  .note{
+    margin-top:34px;
+    font-size:14.5px;
+    color:var(--muted);
+    max-width:60ch;
+    line-height:1.55;
+  }
+
+  /* ---------- the spine ---------- */
+  .arc{position:relative;padding-top:64px;}
+  .arclabel{text-align:center;margin-bottom:8px;}
+  .arclabel h2{
+    font-family:var(--serif);font-weight:400;
+    font-size:26px;margin:8px 0 0;
+  }
+  .arclabel p{color:var(--muted);font-size:14.5px;margin:6px auto 0;max-width:52ch;}
+
+  .stage{
+    position:relative;
+    padding:44px 0 44px 42px;
+    border-left:2px solid var(--border);
+  }
+  .stage::before{
+    content:"";
+    position:absolute;left:-9px;top:52px;
+    width:16px;height:16px;border-radius:50%;
+    background:var(--tone,var(--muted));
+    border:3px solid var(--paper);
+    box-shadow:0 0 0 1px var(--tone,var(--muted));
+  }
+  .stage .snum{
+    font-family:var(--mono);
+    font-size:12px;letter-spacing:0.16em;
+    color:var(--tone,var(--muted));
+    text-transform:uppercase;
+  }
+  .stage h3{
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:clamp(22px,3.4vw,29px);
+    letter-spacing:-0.01em;
+    margin:6px 0 0;
+    line-height:1.12;
+  }
+  .stage .gist{
+    font-size:16px;
+    color:#5a4a3e;
+    max-width:58ch;
+    margin:12px 0 26px;
+  }
+
+  /* quote chips */
+  .quotes{display:flex;flex-direction:column;gap:12px;}
+  .q{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-left:4px solid var(--tone,var(--muted));
+    border-radius:4px 12px 12px 4px;
+    padding:15px 18px;
+    font-size:16px;
+    line-height:1.5;
+    color:#3a2c23;
+  }
+  .q mark{
+    background:transparent;
+    color:var(--tone,var(--ink));
+    font-weight:600;
+  }
+
+  /* pull quote — the emotional peak of a stage */
+  .pull{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:clamp(21px,3.4vw,28px);
+    line-height:1.35;
+    color:var(--ink);
+    margin:26px 0 4px;
+    max-width:24ch;
+    text-wrap:balance;
+  }
+  .pull .amp{color:var(--tone);}
+
+  /* creative callout */
+  .cue{
+    margin:28px 0 4px;
+    background:var(--warm);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:18px 20px;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:6px 14px;
+    align-items:start;
+  }
+  .cue .tag{
+    grid-row:1/3;
+    font-family:var(--mono);
+    font-size:10.5px;letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--orange);
+    border:1px solid var(--orange);
+    border-radius:6px;
+    padding:5px 8px;
+    white-space:nowrap;
+    margin-top:2px;
+  }
+  .cue h4{margin:0;font-size:15.5px;font-weight:700;}
+  .cue p{margin:2px 0 0;font-size:15px;color:#5a4a3e;line-height:1.5;}
+
+  /* ---------- block sections ---------- */
+  .block{padding:64px 0 8px;}
+  .block > .eyebrow{margin-bottom:10px;}
+  .block h2{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(28px,4.4vw,40px);
+    letter-spacing:-0.02em;
+    margin:0 0 6px;
+    text-wrap:balance;
+  }
+  .block .sub{color:var(--muted);font-size:15.5px;margin:0 0 30px;max-width:56ch;}
+
+  /* language bank grid */
+  .bank{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:14px;
+  }
+  .bankcard{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:20px;
+  }
+  .bankcard .h{
+    font-family:var(--mono);
+    font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--muted);
+    display:flex;align-items:center;gap:8px;
+    margin-bottom:14px;
+  }
+  .bankcard .h::before{
+    content:"";width:9px;height:9px;border-radius:50%;background:var(--tone,var(--muted));flex:none;
+  }
+  .bankcard ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;}
+  .bankcard li{
+    font-size:15.5px;line-height:1.35;color:#3a2c23;
+    padding-left:16px;position:relative;
+  }
+  .bankcard li::before{
+    content:"“";position:absolute;left:0;top:2px;color:var(--tone,var(--muted));font-family:var(--serif);font-size:18px;line-height:1;
+  }
+
+  /* segments */
+  .segs{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:14px;
+  }
+  .seg{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:20px;
+  }
+  .seg .st{font-weight:700;font-size:16px;margin:0 0 8px;}
+  .seg .sq{font-family:var(--serif);font-style:italic;font-size:15.5px;color:#5a4a3e;line-height:1.4;margin:0;}
+  .seg .sn{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;color:var(--muted);margin:12px 0 0;text-transform:uppercase;}
+
+  /* takeaways */
+  .takes{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--border);}
+  .take{
+    display:grid;
+    grid-template-columns:44px 1fr;
+    gap:20px;
+    padding:22px 0;
+    border-bottom:1px solid var(--border);
+    align-items:start;
+  }
+  .take .n{
+    font-family:var(--serif);
+    font-size:26px;color:var(--orange);line-height:1;
+  }
+  .take h4{margin:0 0 5px;font-size:17px;font-weight:700;}
+  .take p{margin:0;font-size:15.5px;color:#5a4a3e;line-height:1.5;}
+  .take b{color:var(--ink);font-weight:600;}
+
+  footer{
+    margin-top:70px;padding-top:26px;border-top:1px solid var(--border);
+    font-family:var(--mono);font-size:11.5px;letter-spacing:0.05em;color:var(--muted);
+    line-height:1.7;
+  }
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="col">
+
+    <!-- HERO -->
+    <header class="hero">
+      <p class="eyebrow">WildGut · Customer Mindset Map · Colon Reset</p>
+      <h1>She's not chasing a cleanse. She wants to feel <em>normal</em> again.</h1>
+      <p class="thesis">By the time she finds you, she's tried everything, been let down by all of it, and quietly stopped believing anything will work.</p>
+
+      <div class="who">
+        <span>93% female</span>
+        <span>Age 45–64</span>
+        <span>UK</span>
+        <span>Core pain: constipation</span>
+        <span>Sceptical by default</span>
+        <span>Buys on feeling</span>
+      </div>
+
+      <p class="note">Every line on this page is a real customer's own words — pulled verbatim from your Trustpilot reviews, order reviews, and the language bank. Nothing here is paraphrased. Read it out loud to get inside her head before you write.</p>
+    </header>
+
+    <!-- THE ARC -->
+    <div class="arc">
+      <div class="arclabel reveal">
+        <p class="eyebrow">The emotional arc</p>
+        <h2>How she travels — from stuck to loyal</h2>
+        <p>Follow the temperature. It starts hot with the problem, cools into resignation at the low point, then warms green as relief and trust take over. Creative can enter at any stage — but she has to recognise herself in it.</p>
+      </div>
+
+      <!-- STAGE 1 -->
+      <section class="stage reveal" style="--tone:var(--orange)">
+        <span class="snum">Stage 01 · The struggle</span>
+        <h3>This has been going on for years</h3>
+        <p class="gist">Constipation is the fact of her life — not a bad week, a permanent state. She measures it in days and years, not hours. This is the ground everything else sits on.</p>
+        <div class="quotes">
+          <p class="q">I have had <mark>chronic constipation for many years</mark> &amp; it can be two weeks before I have a proper bowel movement.</p>
+          <p class="q">After <mark>decades of being constipated</mark>. You name it I tried it.</p>
+          <p class="q">I've always had issues with bowel movements <mark>for as long as I can remember</mark>.</p>
+          <p class="q">I was in <mark>constant pain from being so blocked up</mark>.</p>
+          <p class="q">I <mark>struggle to go naturally</mark> and have tried all sorts of things to help.</p>
+        </div>
+        <p class="pull">She says it plainly: <span class="amp">“backed up.” “Bunged up.” “Blocked up.”</span></p>
+      </section>
+
+      <!-- STAGE 2 -->
+      <section class="stage reveal" style="--tone:#e07a4f">
+        <span class="snum">Stage 02 · The felt layer</span>
+        <h3>But what she feels is heavy, bloated, sluggish</h3>
+        <p class="gist">Constipation is the <em>diagnosis</em>. Bloated and heavy is the <em>sensation</em> she lives in all day. This is the difference between naming the problem and making her feel understood.</p>
+        <div class="quotes">
+          <p class="q">Still feeling <mark>bloated, full and sluggish</mark>. Hopefully this will get better.</p>
+          <p class="q">I always went to the loo regularly but <mark>never felt "empty"</mark>.</p>
+          <p class="q">No more <mark>heavy sluggish feelings</mark>.</p>
+          <p class="q">No more <mark>discomfort for days on end</mark>.</p>
+        </div>
+        <div class="cue">
+          <span class="tag">For creative</span>
+          <h4>Lead with the fact, agitate with the feeling.</h4>
+          <p>Name <b>constipation</b> in the hook (it converts) — then twist the knife with <b>bloated, heavy, never empty</b>. That's the felt layer she recognises in the mirror.</p>
+        </div>
+      </section>
+
+      <!-- STAGE 3 -->
+      <section class="stage reveal" style="--tone:var(--muted)">
+        <span class="snum">Stage 03 · The graveyard</span>
+        <h3>She's already tried everything you're about to suggest</h3>
+        <p class="gist">Water. Fibre. Fruit. Laxatives. Prune juice. The whole chemist aisle. Even the hospital. Assume she's ahead of you — and that the ones that "worked" all quietly stopped.</p>
+        <div class="quotes">
+          <p class="q">I have tried various pills &amp; herbal remedies etc but <mark>nothing has worked</mark>.</p>
+          <p class="q"><mark>More water. More fibre, more fruit and laxatives.</mark> You name it I tried it.</p>
+          <p class="q">Been so bunged up, had the <mark>prune juice and laxatives daily</mark>.</p>
+          <p class="q">Tried all the <mark>supermarket and Chemists usual products</mark>.</p>
+          <p class="q">I have tried so many products… they <mark>work at first then gradually stop</mark> doing anything.</p>
+          <p class="q">Even having been to <mark>hospital to try and fix the issue</mark>.</p>
+        </div>
+        <div class="cue">
+          <span class="tag">For creative</span>
+          <h4>Name the graveyard out loud.</h4>
+          <p>Listing what failed her — <b>water, fibre, prune juice, laxatives</b> — earns instant belief. It proves you know her, and sets up the killer line: <b>“worked when nothing else did.”</b></p>
+        </div>
+      </section>
+
+      <!-- STAGE 4 -->
+      <section class="stage reveal" style="--tone:var(--wall)">
+        <span class="snum">Stage 04 · The wall</span>
+        <h3>So of course she doesn't believe you</h3>
+        <p class="gist">The low point. She's not hopeful — she's braced for another let-down. "Sceptical" isn't an objection to overcome; it's her resting state, and it's her most-used word in the entire review set.</p>
+        <div class="quotes">
+          <p class="q">I'll be honest — I was <mark>deeply sceptical</mark> that this would work, after years of chronic constipation.</p>
+          <p class="q">I was <mark>sceptical at first</mark>, thinking it would be another brand claiming things worked naturally.</p>
+          <p class="q">I <mark>wasn't convinced</mark> it would do all it says.</p>
+          <p class="q">I <mark>didn't have high hopes</mark> when I ordered, having tried several alternatives.</p>
+        </div>
+        <div class="cue">
+          <span class="tag">For creative</span>
+          <h4>Don't fight the scepticism — say it for her.</h4>
+          <p>“I was sceptical at first, but…” is her exact arc. Opening on her doubt (a review-style, contrarian hook) disarms it faster than any claim. <b>“Actually”</b> is your highest-signal word — it means she didn't expect it to work.</p>
+        </div>
+      </section>
+
+      <!-- FEAR sidebar as a stage -->
+      <section class="stage reveal" style="--tone:#8a6d5a">
+        <span class="snum">Stage 04½ · The fear underneath</span>
+        <h3>And she's scared of getting hooked on the fix</h3>
+        <p class="gist">Even wanting relief, she's wary of trading one trap for another. Dependency is a live fear — trigger it and you lose her; reassure it and you win.</p>
+        <div class="quotes">
+          <p class="q">I worry that <mark>I will become reliant</mark>. That's not great.</p>
+          <p class="q">I didn't want to be <mark>on laxatives forever</mark>.</p>
+          <p class="q">They work at first then <mark>gradually stop</mark> — will this one too?</p>
+        </div>
+        <div class="cue">
+          <span class="tag">For creative</span>
+          <h4>Frame it as daily support, never a crutch.</h4>
+          <p>Lean on <b>gentle, natural, keeps me regular</b> — the language of a habit, not a rescue. Avoid anything that sounds like a laxative she'll be chained to.</p>
+        </div>
+      </section>
+
+      <!-- STAGE 5 -->
+      <section class="stage reveal" style="--tone:var(--olive)">
+        <span class="snum">Stage 05 · The turn</span>
+        <h3>Then — fast, gentle — it actually works</h3>
+        <p class="gist">The unlock. Speed plus gentleness. It moves in days, sometimes hours, without the cramping and pain the laxatives gave her. Surprise is the dominant emotion here.</p>
+        <div class="quotes">
+          <p class="q">Within <mark>48 hours it worked, very gentle with no stomach cramps</mark>. What a game changer.</p>
+          <p class="q">Within <mark>24 hrs of starting… I had movement!!</mark> No pain or cramping.</p>
+          <p class="q">After about 4 days I have started <mark>pooping normally, no straining and no pain</mark>.</p>
+          <p class="q">This product <mark>actually works</mark>. I was sceptical at first.</p>
+          <p class="q">Amazing product that <mark>worked when nothing else did</mark>.</p>
+        </div>
+      </section>
+
+      <!-- STAGE 6 -->
+      <section class="stage reveal" style="--tone:var(--green)">
+        <span class="snum">Stage 06 · Relief</span>
+        <h3>Light, regular, in control — for the first time in years</h3>
+        <p class="gist">What "better" actually feels like to her. Not a dramatic detox — the quiet return of normal. These are the exact emotion-words to own in transformation copy.</p>
+        <div class="quotes">
+          <p class="q">Feel so much <mark>lighter and less sluggish</mark>. Love these.</p>
+          <p class="q"><mark>Regular for the first time in a long time</mark>. I can't thank you enough.</p>
+          <p class="q">No more bloating, just <mark>normal daily function</mark>.</p>
+          <p class="q">This is the first product that is gentle, still makes me <mark>feel in control</mark> and actually works.</p>
+          <p class="q">I now <mark>go every morning</mark>, and if I miss a day, I know it's not going to be painful.</p>
+        </div>
+        <p class="pull">The whole promise, in her words: <span class="amp">“actually NORMAL for the first time in years.”</span></p>
+      </section>
+
+      <!-- STAGE 7 -->
+      <section class="stage reveal" style="--tone:var(--green-deep)">
+        <span class="snum">Stage 07 · The new normal</span>
+        <h3>Now she can't be without them — and wishes she'd found you sooner</h3>
+        <p class="gist">Identity and habit. It's part of her routine, she's on her third bottle, and the regret is telling: she wishes she'd found it earlier. This is your retention and referral engine.</p>
+        <div class="quotes">
+          <p class="q">Wild gut has <mark>completely changed my life</mark>, no exaggeration.</p>
+          <p class="q">These are an <mark>absolute godsend</mark>. This is my third purchase and I <mark>don't let myself be without them</mark>.</p>
+          <p class="q">Part of my <mark>daily routine for the foreseeable</mark>.</p>
+          <p class="q">So wish I'd <mark>found it earlier</mark>! / Wish I had known about this sooner.</p>
+          <p class="q">I <mark>rely on them now</mark>. I'm at the maintenance stage.</p>
+        </div>
+        <div class="cue">
+          <span class="tag">For creative</span>
+          <h4>"Game changer" and "godsend" are hers — use them.</h4>
+          <p>They came unprompted, over and over. So did <b>"wish I'd found it sooner."</b> That regret is a powerful hook for the still-suffering woman scrolling past.</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- LANGUAGE BANK -->
+    <section class="block reveal">
+      <p class="eyebrow">How she actually says it</p>
+      <h2>Her words, not marketing's</h2>
+      <p class="sub">The raw vocabulary, sorted by where it lives in the arc. Drop these in verbatim — the second you "improve" them into brochure language, she stops recognising herself.</p>
+
+      <div class="bank">
+        <div class="bankcard" style="--tone:var(--orange)">
+          <div class="h">The problem</div>
+          <ul>
+            <li>Backed up / bunged up / blocked up</li>
+            <li>Chronic constipation for years</li>
+            <li>Struggle to go naturally</li>
+            <li>Bloated. Heavy. Sluggish.</li>
+            <li>Never felt empty</li>
+            <li>Dreaded going to the toilet</li>
+          </ul>
+        </div>
+        <div class="bankcard" style="--tone:var(--muted)">
+          <div class="h">What failed her</div>
+          <ul>
+            <li>Tried loads of things</li>
+            <li>More water, more fibre, more fruit</li>
+            <li>Prune juice and laxatives daily</li>
+            <li>Nothing has worked</li>
+            <li>Work at first then stop</li>
+            <li>You name it I tried it</li>
+          </ul>
+        </div>
+        <div class="bankcard" style="--tone:var(--wall)">
+          <div class="h">Her guard up</div>
+          <ul>
+            <li>Sceptical at first</li>
+            <li>Deeply sceptical</li>
+            <li>Didn't have high hopes</li>
+            <li>Wasn't convinced</li>
+            <li>Another brand claiming…</li>
+            <li>Worry I'll become reliant</li>
+          </ul>
+        </div>
+        <div class="bankcard" style="--tone:var(--green)">
+          <div class="h">What relief feels like</div>
+          <ul>
+            <li>It actually works</li>
+            <li>Feel lighter</li>
+            <li>Keeps me regular</li>
+            <li>Gentle — no cramps, no pain</li>
+            <li>Emptying completely</li>
+            <li>Normal for the first time in years</li>
+          </ul>
+        </div>
+        <div class="bankcard" style="--tone:var(--green-deep)">
+          <div class="h">Deep loyalty</div>
+          <ul>
+            <li>Game changer</li>
+            <li>Godsend</li>
+            <li>Changed my life</li>
+            <li>Can't be without them</li>
+            <li>On my third bottle</li>
+            <li>Wish I'd found it sooner</li>
+          </ul>
+        </div>
+        <div class="bankcard" style="--tone:#c39b34">
+          <div class="h">The warning-as-proof</div>
+          <ul>
+            <li>Stay close to a toilet</li>
+            <li>It really clears you out</li>
+            <li>Be close to a toilet when you take them</li>
+            <li>You'll be running to the loo</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEGMENTS -->
+    <section class="block reveal">
+      <p class="eyebrow">The women underneath the average</p>
+      <h2>Five sub-groups worth a hook of their own</h2>
+      <p class="sub">"45–64 UK female" is the average — but these specific situations show up again and again, unprompted, and each is a ready-made angle.</p>
+
+      <div class="segs">
+        <div class="seg" style="--tone:var(--orange)">
+          <p class="st">On GLP-1 (Mounjaro / Ozempic)</p>
+          <p class="sq">"A proper life changer, especially being older and on GLP-1. No pain and no after effects."</p>
+          <p class="sn">Already an active funnel angle</p>
+        </div>
+        <div class="seg" style="--tone:var(--orange)">
+          <p class="st">Post-surgery</p>
+          <p class="sq">"Never had regular bowel movements in a long time since I had my gastric sleeve surgery."</p>
+          <p class="sn">Weight / bariatric context</p>
+        </div>
+        <div class="seg" style="--tone:var(--orange)">
+          <p class="st">Medication-induced</p>
+          <p class="sq">"18 months of constipation caused by drugs for my illness… found your colon reset and it works."</p>
+          <p class="sn">Antibiotics · illness meds</p>
+        </div>
+        <div class="seg" style="--tone:var(--orange)">
+          <p class="st">IBS-C &amp; IBS-D</p>
+          <p class="sq">"I have IBS and have struggled for so many years — this is the first product that actually helps me."</p>
+          <p class="sn">Chronic · debilitating</p>
+        </div>
+        <div class="seg" style="--tone:var(--orange)">
+          <p class="st">Older &amp; lifelong</p>
+          <p class="sq">"70yrs old and always been constipated, to the point that I dreaded going to the toilet."</p>
+          <p class="sn">Decades of struggle</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAKEAWAYS -->
+    <section class="block reveal">
+      <p class="eyebrow">Pin these above the desk</p>
+      <h2>What it means for creative</h2>
+      <p class="sub">The mindset above, distilled into rules you can hold a hook against.</p>
+
+      <div class="takes">
+        <div class="take">
+          <div class="n">1</div>
+          <div>
+            <h4>Constipation is the entry, bloated is the twist</h4>
+            <p>Name <b>constipation</b> in the hook — the data says it out-converts bloating. Then agitate with the <b>bloated / heavy / never empty</b> feeling she lives in.</p>
+          </div>
+        </div>
+        <div class="take">
+          <div class="n">2</div>
+          <div>
+            <h4>Meet her scepticism, don't argue with it</h4>
+            <p>"Sceptical at first" is her default, not an objection. Open <b>inside her doubt</b> and let the result surprise her. "Actually" is your tell-tale word.</p>
+          </div>
+        </div>
+        <div class="take">
+          <div class="n">3</div>
+          <div>
+            <h4>Recite the graveyard of what failed</h4>
+            <p><b>Water, fibre, prune juice, laxatives, the chemist aisle.</b> Listing them proves you know her — and sets up "worked when nothing else did."</p>
+          </div>
+        </div>
+        <div class="take">
+          <div class="n">4</div>
+          <div>
+            <h4>Gentle + natural is the wedge against laxatives</h4>
+            <p>Her fear is dependency and cramping. <b>Gentle, natural, no pain, keeps me regular</b> is the exact contrast that separates you from everything she's tried.</p>
+          </div>
+        </div>
+        <div class="take">
+          <div class="n">5</div>
+          <div>
+            <h4>Sell "normal," never "detox"</h4>
+            <p>She wants <b>regular, light, in control, normal for the first time in years</b> — the quiet return of ordinary. Not a cleanse, not a finish line, a daily habit.</p>
+          </div>
+        </div>
+        <div class="take">
+          <div class="n">6</div>
+          <div>
+            <h4>"Wish I'd found it sooner" is a hook, not just a review</h4>
+            <p>The regret of loyal customers speaks straight to the woman still scrolling and suffering. Her happy ending is your best cold-traffic opener.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Built from WildGut customer voice — Trustpilot reviews, order reviews &amp; messaging playbook language bank.<br>
+      Every quote verbatim. No paraphrasing. · Colon Reset · UK
+    </footer>
+
+  </div>
+</div>
+
+<script>
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);} });
+    },{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+    els.forEach(function(e){io.observe(e);});
+  })();
+</script>
+
+</body>
+</html>
