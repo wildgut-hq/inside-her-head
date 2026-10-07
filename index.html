@@ -223,8 +223,11 @@
     white-space:nowrap;
     margin-top:2px;
   }
-  .cue h4{margin:0;font-size:15.5px;font-weight:700;}
-  .cue p{margin:2px 0 0;font-size:15px;color:#5a4a3e;line-height:1.5;}
+  /* tag sits in col 1; every text child is pinned to col 2 so a cue can carry
+     more than one paragraph without the grid falling apart */
+  .cue h4{margin:0;font-size:15.5px;font-weight:700;grid-column:2;}
+  .cue p{margin:2px 0 0;font-size:15px;color:#5a4a3e;line-height:1.5;grid-column:2;}
+  .cue p + p{margin-top:11px;}
 
   /* ---------- block sections ---------- */
   .block{padding:64px 0 8px;}
