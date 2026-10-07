@@ -160,6 +160,31 @@
     color:var(--tone,var(--ink));
     font-weight:600;
   }
+  /* overheard — a woman who has NOT bought from us. Insight only, never a review. */
+  .q.cold{
+    background:var(--warm);
+    border-left-style:dashed;
+  }
+  .q .src{
+    display:block;
+    font-family:var(--mono);
+    font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--muted);
+    margin-top:10px;
+  }
+  .legend{
+    display:flex;flex-wrap:wrap;gap:18px;
+    margin:22px 0 0;
+    font-family:var(--mono);
+    font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--muted);
+  }
+  .legend i{font-style:normal;display:flex;align-items:center;gap:8px;}
+  .legend i::before{
+    content:"";width:14px;height:0;border-top:3px solid var(--muted);flex:none;
+  }
+  .legend i.warm::before{border-top-style:solid;border-color:var(--orange);}
+  .legend i.cool::before{border-top-style:dashed;}
 
   /* pull quote — the emotional peak of a stage */
   .pull{
@@ -341,7 +366,11 @@
         <span>Buys on feeling</span>
       </div>
 
-      <p class="note">Every line on this page is a real customer's own words — pulled verbatim from your Trustpilot reviews, order reviews, and the language bank. Nothing here is paraphrased. Read it out loud to get inside her head before you write.</p>
+      <p class="note">Every line on this page is a real woman's own words, verbatim. Nothing is paraphrased. Read it out loud to get inside her head before you write.</p>
+
+      <p class="note">Two voices sit side by side. <b>Customers</b> are women who already found us, from Trustpilot and order reviews. <b>Overheard</b> is women still stuck, from Mumsnet, Gransnet, Reddit and reviews of the products that failed them. Customers tell you what relief feels like. The overheard ones tell you what she is thinking the second before she scrolls past your ad, which is where most of our creative has to work.</p>
+
+      <p class="legend"><i class="warm">Customer · safe to quote</i><i class="cool">Overheard · insight only, never quote as a review</i></p>
     </header>
 
     <!-- THE ARC -->
@@ -363,8 +392,37 @@
           <p class="q">I've always had issues with bowel movements <mark>for as long as I can remember</mark>.</p>
           <p class="q">I was in <mark>constant pain from being so blocked up</mark>.</p>
           <p class="q">I <mark>struggle to go naturally</mark> and have tried all sorts of things to help.</p>
+          <p class="q cold">I now <mark>haven't been since Thursday</mark>.<span class="src">Overheard · Mumsnet</span></p>
+          <p class="q cold">My <mark>record was 17 days!</mark><span class="src">Overheard · Mumsnet</span></p>
         </div>
         <p class="pull">She says it plainly: <span class="amp">“backed up.” “Bunged up.” “Blocked up.”</span></p>
+        <div class="cue">
+          <span class="tag">For creative</span>
+          <h4>She counts in days. Count with her.</h4>
+          <p>Counting shows up in <b>68</b> of the overheard quotes. A named day beats an adjective every time: <b>“I haven't been since Thursday”</b> lands harder than “I'm constipated.” It's specific, it's hers, and it makes a scroller check her own count.</p>
+        </div>
+      </section>
+
+      <!-- STAGE 1½ -->
+      <section class="stage reveal" style="--tone:#c76a42">
+        <span class="snum">Stage 01½ · What changed</span>
+        <h3>She didn't always have this body, and nobody has told her why</h3>
+        <p class="gist">The blind spot. <b>Not one</b> of our 347 customer reviews mentions menopause. In her own spaces it is the single loudest explanation: <b>59</b> quotes name menopause or peri, <b>54</b> name HRT or progesterone. She is living through a change she can't account for, and the story is always the same shape — it used to be fine.</p>
+        <div class="quotes">
+          <p class="q cold"><mark>Never had a single issue until I was 45 and menopausal.</mark><span class="src">Overheard · Mumsnet</span></p>
+          <p class="q cold">I had a <mark>perfect iron gut</mark>.<span class="src">Overheard · Mumsnet</span></p>
+          <p class="q cold">My diet, which used to keep me regular, <mark>hasn't changed</mark>, so I'm thinking it must be peri related.<span class="src">Overheard · Mumsnet</span></p>
+          <p class="q cold">The <mark>progesterone makes me terribly constipated</mark>.<span class="src">Overheard · Mumsnet</span></p>
+          <p class="q cold">I'm on HRT but <mark>alas just as constipated as ever</mark>.<span class="src">Overheard · Gransnet</span></p>
+          <p class="q cold">Annoyingly, <mark>his bowels work a treat on the same diet</mark>.<span class="src">Overheard · Mumsnet</span></p>
+          <p class="q cold">My new doctor just told me <mark>constipation is not likely related to menopause</mark>. Like what?<span class="src">Overheard · Reddit</span></p>
+        </div>
+        <p class="pull">The question underneath everything: <span class="amp">“how has my body become immune to its triggers?”</span></p>
+        <div class="cue">
+          <span class="tag">For creative</span>
+          <h4>Name the cause, not just the symptom.</h4>
+          <p>Everyone else sells her a fix for constipation. Almost nobody tells her <b>why her gut changed at 45</b>. Naming it does the belief-building for you: she goes from thinking she's failing at something to understanding what happened to her. <b>“Your diet didn't change. Your hormones did.”</b> That's a cold-traffic opener, and it's the one angle in here nobody in the category is running.</p>
+        </div>
       </section>
 
       <!-- STAGE 2 -->
@@ -377,11 +435,16 @@
           <p class="q">I always went to the loo regularly but <mark>never felt "empty"</mark>.</p>
           <p class="q">No more <mark>heavy sluggish feelings</mark>.</p>
           <p class="q">No more <mark>discomfort for days on end</mark>.</p>
+          <p class="q cold">I <mark>look 6 months pregnant</mark>.<span class="src">Overheard · Mumsnet</span></p>
+          <p class="q cold">If I take movicol I end up <mark>looking 9 months pregnant</mark>.<span class="src">Overheard · Mumsnet</span></p>
+          <p class="q cold">Coping with things like <mark>waistbands and tights was nigh impossible</mark>.<span class="src">Overheard · Mumsnet</span></p>
+          <p class="q cold">I just feel <mark>'full'</mark>! Its horrid!<span class="src">Overheard · Gransnet</span></p>
         </div>
         <div class="cue">
           <span class="tag">For creative</span>
           <h4>Lead with the fact, agitate with the feeling.</h4>
           <p>Name <b>constipation</b> in the hook (it converts) — then twist the knife with <b>bloated, heavy, never empty</b>. That's the felt layer she recognises in the mirror.</p>
+          <p>And when she describes seeing it, she reaches for one image every time: <b>looking pregnant</b>, always with a number of months attached. It comes with clothes — waistbands, undoing her jeans, going up two sizes. That's more specific and more visual than “bloated”, and it's free.</p>
         </div>
       </section>
 
@@ -398,11 +461,17 @@
           <p class="q">I have tried so many products… they <mark>work at first then gradually stop</mark> doing anything.</p>
           <p class="q">Even having been to <mark>hospital to try and fix the issue</mark>.</p>
           <p class="q">Over the last few years I've <mark>spent £100's on different tablets</mark> for constipation and constant painful bloating.</p>
+          <p class="q cold">I <mark>never want to eat another prune</mark> for as long as I live.<span class="src">Overheard · Mumsnet</span></p>
+          <p class="q cold">Increasing fibre / taking bulking medicines like fybogel <mark>made it worse as there was more to get stuck</mark>.<span class="src">Overheard · Mumsnet</span></p>
+          <p class="q cold">Take a capful of it on a Friday night, <mark>stay near a loo on Saturday</mark>.<span class="src">Overheard · Mumsnet</span></p>
+          <p class="q cold">It's <mark>all or nothing</mark> with me.<span class="src">Overheard · Mumsnet</span></p>
+          <p class="q cold">I eat mountains of veg and pulses every single day and <mark>I need to take Movicol every day</mark>.<span class="src">Overheard · Mumsnet</span></p>
         </div>
         <div class="cue">
           <span class="tag">For creative</span>
           <h4>Name the graveyard out loud.</h4>
           <p>Listing what failed her — <b>water, fibre, prune juice, laxatives</b> — earns instant belief. It proves you know her, and sets up the killer line: <b>“worked when nothing else did.”</b></p>
+          <p>Three details make the recital sharper. She is <b>sick of prunes</b>, not just unconvinced by them, so the fatigue is funnier and truer than the failure. The powders are hated for <b>taste and texture</b> above all — vile, gloopy, gagging — which makes <b>a capsule instead of a gloopy sachet</b> a format wedge we never use. And laxatives <b>cost her the weekend</b>: she plans her Saturday around the loo. That is a sharper enemy than “harsh”.</p>
         </div>
       </section>
 
@@ -417,11 +486,15 @@
           <p class="q">I <mark>wasn't convinced</mark> it would do all it says.</p>
           <p class="q">I <mark>didn't have high hopes</mark> when I ordered, having tried several alternatives.</p>
           <p class="q">I was a bit dubious that these would live up to the strong reviews, and be <mark>another thing I bought via socials that wasn't very good</mark>.</p>
+          <p class="q cold">The GP just <mark>fobbed me off with IBS</mark>.<span class="src">Overheard · Mumsnet</span></p>
+          <p class="q cold">Told me it's <mark>'just' IBS and to get on with it</mark>.<span class="src">Overheard · Mumsnet</span></p>
+          <p class="q cold">I have phases of thinking I should go back to the gp with them, but then thinking <mark>there's no point</mark>.<span class="src">Overheard · Mumsnet</span></p>
         </div>
         <div class="cue">
           <span class="tag">For creative</span>
           <h4>Don't fight the scepticism — say it for her.</h4>
           <p>“I was sceptical at first, but…” is her exact arc. Opening on her doubt (a review-style, contrarian hook) disarms it faster than any claim. <b>“Actually”</b> is your highest-signal word — it means she didn't expect it to work.</p>
+          <p>Her doubt has a history. Of the overheard quotes that mention a doctor, a run of them are women who went and got nothing back: <b>fobbed off</b>, told it's <b>“just IBS”</b>, and eventually deciding there's no point going again. By the time she reaches your ad she has been dismissed by someone with far more authority than you. Being believed is the thing she's short of, so <b>“you're not imagining it”</b> does more work than any claim about the product.</p>
         </div>
       </section>
 
@@ -498,9 +571,22 @@
     <section class="block reveal">
       <p class="eyebrow">How she actually says it</p>
       <h2>Her words, not marketing's</h2>
-      <p class="sub">The raw vocabulary, sorted by where it lives in the arc. Drop these in verbatim — the second you "improve" them into brochure language, she stops recognising herself.</p>
+      <p class="sub">The raw vocabulary, sorted by where it lives in the arc. Drop these in verbatim — the second you "improve" them into brochure language, she stops recognising herself. The first card is overheard language from women who haven't bought: use it to <em>describe</em> her, never to stand in for a review.</p>
 
       <div class="bank">
+        <div class="bankcard" style="--tone:#c76a42">
+          <div class="h">Overheard · before she finds you</div>
+          <ul>
+            <li>Never had a single issue until I was 45</li>
+            <li>I had a perfect iron gut</li>
+            <li>It must be peri related</li>
+            <li>The progesterone makes me constipated</li>
+            <li>I haven't been since Thursday</li>
+            <li>I look 6 months pregnant</li>
+            <li>The GP fobbed me off / "just" IBS</li>
+            <li>It's all or nothing with me</li>
+          </ul>
+        </div>
         <div class="bankcard" style="--tone:var(--orange)">
           <div class="h">The problem</div>
           <ul>
@@ -589,7 +675,7 @@
         <div class="seg" style="--tone:var(--orange)">
           <p class="st">Medication-induced</p>
           <p class="sq">"18 months of constipation caused by drugs for my illness… found your colon reset and it works."</p>
-          <p class="sn">Antibiotics · illness meds</p>
+          <p class="sn">Antibiotics · illness meds · HRT progesterone</p>
         </div>
         <div class="seg" style="--tone:var(--orange)">
           <p class="st">IBS-C &amp; IBS-D</p>
@@ -644,6 +730,7 @@
           <div>
             <h4>Sell "normal," never "detox"</h4>
             <p>She wants <b>regular, light, in control, normal for the first time in years</b> — the quiet return of ordinary. Not a cleanse, not a finish line, a daily habit.</p>
+            <p>The overheard pull sharpens this into a warning. <b>"Colon cleanses are a scam"</b> is a live opinion in her spaces, and reviews of actual colon-cleanse products skew angry. The category name carries baggage our product doesn't deserve, so lead on <b>gentle and daily</b> and let the name sit quietly behind it.</p>
           </div>
         </div>
         <div class="take">
@@ -653,13 +740,22 @@
             <p>The regret of loyal customers speaks straight to the woman still scrolling and suffering. Her happy ending is your best cold-traffic opener.</p>
           </div>
         </div>
+        <div class="take">
+          <div class="n">7</div>
+          <div>
+            <h4>Explain why her gut changed at 45</h4>
+            <p>The biggest gap between what our customers say and what she says before she buys. She knows she's blocked up; nobody has told her <b>why her body stopped working the way it used to</b>. Menopause and HRT are the explanation she reaches for and her GP won't confirm. Naming it moves her from "I'm doing something wrong" to "this happened to me", which is where she becomes buyable.</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <footer>
-      Built from WildGut customer voice — Trustpilot reviews, order reviews &amp; messaging playbook language bank.<br>
-      Every quote verbatim. No paraphrasing. · Colon Reset · UK<br>
-      Last refreshed 19 Aug 2026 · Trustpilot 4.4 · 179 reviews
+      Built from two sources. <b>Customer voice</b> — Trustpilot reviews, order reviews &amp; the messaging playbook language bank.<br>
+      <b>Overheard</b> — 688 verbatim quotes from Mumsnet, Gransnet, Reddit and reviews of the products that failed her.<br>
+      Every quote verbatim. No paraphrasing. Overheard lines are insight, never usable as a WildGut review. · Colon Reset · UK<br>
+      Customer voice refreshed 19 Aug 2026 · Trustpilot 4.4 · 179 reviews<br>
+      Overheard pull 7 Oct 2026 · 688 quotes · Mumsnet &amp; Gransnet 265, Reddit 234, Amazon UK 189
     </footer>
 
   </div>
