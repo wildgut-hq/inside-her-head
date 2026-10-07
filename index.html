@@ -68,13 +68,13 @@
   .hero h1 em{color:var(--orange);font-style:italic;}
   .thesis{
     font-family:var(--serif);
-    font-size:clamp(19px,2.6vw,24px);
-    line-height:1.45;
+    font-size:clamp(20px,2.9vw,27px);
+    line-height:1.4;
     font-style:italic;
     color:#4a3a30;
-    max-width:33ch;
+    max-width:none;
     margin:28px 0 0;
-    text-wrap:pretty;
+    text-wrap:balance;
   }
   .who{
     display:flex;
@@ -190,11 +190,11 @@
   .pull{
     font-family:var(--serif);
     font-style:italic;
-    font-size:clamp(21px,3.4vw,28px);
+    font-size:clamp(20px,2.7vw,26px);
     line-height:1.35;
     color:var(--ink);
     margin:26px 0 4px;
-    max-width:24ch;
+    max-width:none;
     text-wrap:balance;
   }
   .pull .amp{color:var(--tone);}
@@ -314,6 +314,15 @@
 
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
   .reveal.in{opacity:1;transform:none;}
+  /* ---------- phones: stack the callout, reclaim the gutter ---------- */
+  @media (max-width:560px){
+    .cue{grid-template-columns:1fr;gap:10px;}
+    .cue .tag{grid-row:auto;justify-self:start;margin-top:0;}
+    .cue h4,.cue p{grid-column:1;}
+    .stage{padding-left:24px;}
+    .wrap{padding:0 16px 72px;}
+  }
+
   @media (prefers-reduced-motion:reduce){
     .reveal{opacity:1;transform:none;transition:none;}
   }
@@ -420,7 +429,7 @@
           <p class="q cold">Annoyingly, <mark>his bowels work a treat on the same diet</mark>.<span class="src">Overheard · Mumsnet</span></p>
           <p class="q cold">My new doctor just told me <mark>constipation is not likely related to menopause</mark>. Like what?<span class="src">Overheard · Reddit</span></p>
         </div>
-        <p class="pull">The question underneath everything: <span class="amp">“how has my body become immune to its triggers?”</span></p>
+        <p class="pull">Underneath all of it: <span class="amp">“how has my body become immune to its triggers?”</span></p>
         <div class="cue">
           <span class="tag">For creative</span>
           <h4>Name the cause, not just the symptom.</h4>
@@ -547,7 +556,7 @@
           <p class="q">This is the first product that is gentle, still makes me <mark>feel in control</mark> and actually works.</p>
           <p class="q">I now <mark>go every morning</mark>, and if I miss a day, I know it's not going to be painful.</p>
         </div>
-        <p class="pull">The whole promise, in her words: <span class="amp">“actually NORMAL for the first time in years.”</span></p>
+        <p class="pull">The whole promise: <span class="amp">“actually NORMAL for the first time in years.”</span></p>
       </section>
 
       <!-- STAGE 7 -->
